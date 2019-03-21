@@ -13,6 +13,9 @@ data class SportsItem(
     @field:SerializedName("strSportThumb")
     val strSportThumb: String? = null,
 
+    @field:SerializedName("strThumb")
+    val strThumb: String? = null,
+
     @field:SerializedName("strSportDescription")
     val strSportDescription: String? = null,
 
@@ -35,6 +38,21 @@ data class SportsItem(
     val strTime: String? = null,
 
     @field:SerializedName("dateEvent")
-    val dateEvent: String? = null
+    val dateEvent: String? = null,
+
+    @field:SerializedName("intHomeScore")
+    val intHomeScore: String? = null,
+
+    @field:SerializedName("intAwayScore")
+    val intAwayScore: String? = null,
+
+    @field:SerializedName("strHomeGoalDetails")
+    val strHomeGoalDetails: String? = null,
+
+    @field:SerializedName("strAwayGoalDetails")
+    val strAwayGoalDetails: String? = null,
+
+    @field:SerializedName("strDate")
+    val strDate: String? = null
 
 )

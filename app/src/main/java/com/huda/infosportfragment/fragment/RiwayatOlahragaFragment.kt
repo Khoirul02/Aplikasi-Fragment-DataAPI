@@ -12,6 +12,7 @@ import android.widget.TextView
 
 import com.huda.infosportfragment.R
 import com.huda.infosportfragment.adapter.DaftarOlahragaAdapter
+import com.huda.infosportfragment.adapter.RiwayatOlahragaAdapter
 import com.huda.infosportfragment.data.model.SportsItem
 import com.huda.infosportfragment.presenter.DaftarOlahragaPresenter
 import com.huda.infosportfragment.presenter.RiwayatOlahragaPresenter
@@ -21,8 +22,8 @@ import com.huda.infosportfragment.presenter.RiwayatOlahragaPresenter
  *
  */
 class RiwayatOlahragaFragment : Fragment() {
-    private lateinit var DaftarOlahragaAdapter: DaftarOlahragaAdapter
-    private lateinit var riwayatOlahragaPresenter: RiwayatOlahragaPresenter
+    private lateinit var RiwayatOlahragaAdapter: RiwayatOlahragaAdapter
+    private lateinit var RiwayatOlahragaPresenter: RiwayatOlahragaPresenter
     private var items: ArrayList<SportsItem> = arrayListOf()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,9 +35,9 @@ class RiwayatOlahragaFragment : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.rv)
         val progressBar: ProgressBar = view.findViewById(R.id.progress)
         val tvProgress: TextView = view.findViewById(R.id.tvProgressBar)
-        DaftarOlahragaAdapter = DaftarOlahragaAdapter(activity,items)
-        riwayatOlahragaPresenter = RiwayatOlahragaPresenter(items,activity,recyclerView,DaftarOlahragaAdapter, progressBar, tvProgress)
-        riwayatOlahragaPresenter.getDaftarOlahraga()
+        RiwayatOlahragaAdapter = RiwayatOlahragaAdapter(activity,items)
+        RiwayatOlahragaPresenter = RiwayatOlahragaPresenter(items,activity,recyclerView,RiwayatOlahragaAdapter, progressBar, tvProgress)
+        RiwayatOlahragaPresenter.getDaftarOlahraga()
 
 
         return  view

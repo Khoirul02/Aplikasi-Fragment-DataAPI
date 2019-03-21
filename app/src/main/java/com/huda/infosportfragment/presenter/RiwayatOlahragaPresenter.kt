@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import com.huda.infosportfragment.adapter.DaftarOlahragaAdapter
+import com.huda.infosportfragment.adapter.RiwayatOlahragaAdapter
 import com.huda.infosportfragment.data.lib.ApiService
 import com.huda.infosportfragment.data.lib.RetroConfig
 import com.huda.infosportfragment.data.model.SportsItem
@@ -19,7 +19,7 @@ class RiwayatOlahragaPresenter (
     private var items: ArrayList<SportsItem> = arrayListOf(),
     private val context: FragmentActivity?,
     private var rv: RecyclerView,
-    private var mAdapter: DaftarOlahragaAdapter,
+    private var mAdapter: RiwayatOlahragaAdapter,
     private var progressBar : ProgressBar,
     private var tvprogres : TextView){
 
@@ -33,7 +33,7 @@ class RiwayatOlahragaPresenter (
                 items.clear()
                 items = it.events as ArrayList<SportsItem>
                 rv.layoutManager = LinearLayoutManager(context)
-                mAdapter = DaftarOlahragaAdapter(context, items)
+                mAdapter = RiwayatOlahragaAdapter(context, items)
                 rv.adapter = mAdapter
                 progressBar.visibility = View.INVISIBLE
                 tvprogres.visibility = View.INVISIBLE
