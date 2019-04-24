@@ -1,14 +1,18 @@
 package com.huda.infosportfragment.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.huda.infosportfragment.DetailActivity
 import com.huda.infosportfragment.R
 import com.huda.infosportfragment.data.model.SportsItem
 import kotlinx.android.synthetic.main.list_daftar_olahraga.view.*
+import java.time.Instant
 
 class DaftarOlahragaAdapter : RecyclerView.Adapter<DaftarOlahragaAdapter.ViewHolder> {
 
@@ -34,11 +38,19 @@ class DaftarOlahragaAdapter : RecyclerView.Adapter<DaftarOlahragaAdapter.ViewHol
             .load(items?.get(position)?.strSportThumb).override(512, 512).into(holder.image)
 //               holder.itemView.setOnClickListener({
 //        })
+        holder.cv_klik.setOnClickListener {
+            val intent: Intent = Intent(context,DetailActivity::class.java)
+            intent.putExtra("STRSPORT", items?.get(position)?.strSport)
+            intent.putExtra("STRSPORTTHUMB", items?.get(position)?.strSportThumb)
+            intent.putExtra("STRSPORTDESCRIPTION", items?.get(position)?.strSportDescription)
+            context.startActivity(intent)
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nama = view.tv_name_olahraga
         val image = view.img_olahraga
+        val cv_klik = view.cv_klik
     }
 
 }
